@@ -24,7 +24,6 @@ int main() {
     std::string dayString;
     std::string busSystemString;
     int ageInteger;
-    int busSystemInteger;
 
     // Display greeting card
     std::cout << "************************************" << std::endl;
@@ -44,17 +43,18 @@ int main() {
         if (ageInteger < 1) {
             std::cout << "Please enter a valid age" << std::endl;
         }
-        // Ask the user for the day of the week
-        std::cout << "What day is today (eg; Monday, Thursday): ";
-        std::cin >> dayString;
         // Ask which transit system the user is going to use
         std::cout << "Which transit system are you using today: ";
-        std::cin >> busSystemInteger;
-        // Catch erroneous input for age
+        std::cin >> busSystemString;
 
-        try {
-            // Convert the bus system integer into a string
-            busSystemString = std::to_string(busSystemInteger);
+        std::cout << "What day is today: ";
+        std::cin >> dayString;
+        
+        if ((dayString != "Monday") && (dayString != "Tuesday") &&
+                (dayString != "Wednesday") && (dayString != "Thursday") && (dayString != "Friday") ||
+            (dayString != "Saturday") && (dayString != "Sunday")) {
+            std::cout << "Please enter a valid day. For example; Monday, Tuesday etc." << std::endl;
+        } else {
             // This will run if the user chooses the OC Transpo bus system
             if (busSystemString == "OC Transpo") {
                 if (ageInteger > 10 && ageInteger < 65) {
@@ -67,20 +67,17 @@ int main() {
                         std::cout << "Your fare is $ " << OC_SENIOR << std::endl;
                     }
                 }
-            } else {
-                // Children under 10 do not have to pay the fare
-                std::cout << "There is no fare! It is free, have a great day!";
             }
-            // Catch erroneous input for the bus system
-        } catch (std::invalid_argument) {
-            std::cout << busSystemInteger << " is not a valid input.";
+            if (ageInteger < 10) {
+            // Children under 10 do not have to pay the fare
+            std::cout << "There is no fare! It is free, have a great day!";
         }
-        // This will display after everything
-        std::cout << "\n";
-        std::cout << "Thank you for using my program \n";
-        std::cout << "I hope you have a wonderful day !";
-        // Catch erroneous input for the age
     } catch (std::invalid_argument) {
         std::cout << ageString << "is not a valid input";
         }
+    }
+    std::cout << "\n";
+    std::cout << "\n";
+    std::cout << "Thank you for using my program \n";
+    std::cout << "I hope you have a wonderful day !";
 }
