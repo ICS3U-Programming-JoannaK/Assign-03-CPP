@@ -34,24 +34,30 @@ int main() {
     std::cout << "************************************\n" << std::endl;
     std::cout << "\n" << std::endl;
 
-    // get the user's age
+    // get the user's age as a string
     std::cout << "Enter your age: ";
     std::cin >> ageString;
 
+    // Convert the age string to an integer
     try {
         ageInteger = std::stoi(ageString);
         if (ageInteger < 1) {
             std::cout << "Please enter a valid age";
         }
+        // Ask the user for the day of the week
         std::cout << "What day is today (eg; Monday, Thursday):";
         std::cin >> dayString;
+        // Ask which transit system the user is going to use
         std::cout << "Which transit system? (OC Transpo/TTC Toronto):";
         std::cin >> busSystemInteger;
+        // Catch erroneous input for age
     } catch (std::invalid_argument) {
         std::cout << ageString << "is not a valid input";
     }
         try {
+            // Convert the bus system integer into a string
             busSystemString = std::to_string(busSystemInteger);
+            // This will run if the user chooses the OC Transpo bus system
             if (busSystemString == "OC Transpo") {
             if (ageInteger > 10 && ageInteger < 65) {
                 std::cout << "Your fare is $ " << OC_ADULT << std::endl;
