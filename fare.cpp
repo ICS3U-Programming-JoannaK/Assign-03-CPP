@@ -73,10 +73,13 @@ int main() {
                 }
             // This will run if the user chooses the TTC Toronto bus system
             if (busSystemString == "TTC Toronto") {
+                // This is the adult TTC fare
                 if (ageInteger >= 19 && ageInteger < 65) {
                     std::cout << "Your fare is $ " << TTC_ADULT << std::endl;
+                    // This is the senior TTC fare
                     } else if (ageInteger >= 65) {
                     std::cout << "Your fare is $ " << TTC_SENIOR << std::endl;
+                    // This is the student TTC fare
                     } else if (ageInteger > 13 && ageInteger < 18) {
                     std::cout << "Your fare is $ " << TTC_STUDENT << std::endl;
                     // Children under 13 have free fare
@@ -88,4 +91,7 @@ int main() {
         } catch (std::invalid_argument) {
             std::cout << busSystemInteger << " is not a valid input.";
         }
+    std::cout << "/n";
+    std::cout << "Thank you for using my program";
+    std::cout << "I hope you have a wonderful day !";
     }
