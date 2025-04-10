@@ -45,10 +45,10 @@ int main() {
             std::cout << "Please enter a valid age";
         }
         // Ask the user for the day of the week
-        std::cout << "What day is today (eg; Monday, Thursday):";
+        std::cout << "What day is today (eg; Monday, Thursday): ";
         std::cin >> dayString;
         // Ask which transit system the user is going to use
-        std::cout << "Which transit system? (OC Transpo/TTC Toronto):";
+        std::cout << "Which transit system? (OC Transpo/TTC Toronto): ";
         std::cin >> busSystemInteger;
         // Catch erroneous input for age
     } catch (std::invalid_argument) {
@@ -91,7 +91,8 @@ int main() {
         } catch (std::invalid_argument) {
             std::cout << busSystemInteger << " is not a valid input.";
         }
-    std::cout << "/n";
-    std::cout << "Thank you for using my program";
+    // This will display after everything
+    std::cout << "\n";
+    std::cout << "Thank you for using my program \n";
     std::cout << "I hope you have a wonderful day !";
     }
